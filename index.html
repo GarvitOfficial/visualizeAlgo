@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer Pro - Next-Gen Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="core/algorithm-registry.js"></script>
+</head>
+<body>
+    <!-- Fun Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-cube"></i>
+                <span>Algorithm Visualizer</span>
+            </div>
+            <div class="loading-animation">
+                <div class="loading-bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <p class="loading-text">Loading awesome algorithms...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
+    
+    <!-- Simple Notification System -->
+    <div id="notification-container" class="notification-container"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <h1 class="logo">
+                    <i class="fas fa-cube logo-icon"></i>
+                    Algorithm Visualizer Pro
+                </h1>
+                <span class="logo-subtitle">Next-Gen Learning Platform</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="#algorithms" class="nav-link">
+                    <i class="fas fa-sort"></i>
+                    Algorithms
+                </a>
+                <a href="#data-structures" class="nav-link">
+                    <i class="fas fa-layer-group"></i>
+                    Data Structures
+                </a>
+                <a href="#compare" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    Compare
+                </a>
+            </nav>
+            <div class="header-controls">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="sound-toggle" class="sound-toggle" title="Toggle Sound">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="performance-indicator">
+                    <span id="fps-counter">60 FPS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>Interactive Learning</span>
+                    </div>
+                    <h2 class="hero-title">
+                        <span class="title-line">Master Algorithms with</span>
+                        <span class="title-highlight">Interactive Visualizations</span>
+                    </h2>
+                    <p class="hero-subtitle">Experience interactive learning with real-time performance metrics and beautiful animations</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Algorithms</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Data Structures</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Possibilities</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-glow" onclick="scrollToSection('algorithms')">
+                            <i class="fas fa-play"></i>
+                            <span>Start Learning</span>
+                            <div class="btn-particles"></div>
+                        </button>
+                        <button class="btn btn-secondary btn-glass" onclick="scrollToSection('data-structures')">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Data Structures</span>
+                        </button>
+                        <button class="btn btn-tertiary" onclick="openComparison()">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Compare Performance</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-elements">
+                        <div class="floating-element" data-speed="2">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="floating-element" data-speed="3">
+                            <i class="fas fa-sort"></i>
+                        </div>
+                        <div class="floating-element" data-speed="1.5">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="algorithms" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-sort section-icon"></i>
+                        Sorting & Search Algorithms
+                    </h2>
+                    <p class="section-subtitle">Experience algorithms with interactive visualizations and real-time performance analysis</p>
+                </div>
+                <div class="cards-grid">
+                    <!-- Algorithm cards will be automatically generated here by the registry system -->
+                    <div class="loading-placeholder">
+                        <div class="loading-animation">
+                            <i class="fas fa-cog fa-spin"></i>
+                            <p>Loading algorithms...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="data-structures" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-layer-group section-icon"></i>
+                        Data Structures
+                    </h2>
+                    <p class="section-subtitle">Interactive data structure visualizations with real-time operations</p>
+                </div>
+                <div class="cards-grid">
+                    <!-- Data structure cards will be automatically generated here by the registry system -->
+                    <div class="loading-placeholder">
+                        <div class="loading-animation">
+                            <i class="fas fa-cog fa-spin"></i>
+                            <p>Loading data structures...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="compare" class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-line section-icon"></i>
+                        Algorithm Performance Comparison
+                    </h2>
+                    <p class="section-subtitle">Compare algorithms side-by-side with real-time performance metrics</p>
+                </div>
+                <div class="comparison-container">
+                    <div class="comparison-controls">
+                        <select id="algo1-select" class="algo-select">
+                            <option value="bubble-sort">Bubble Sort</option>
+                            <option value="merge-sort">Merge Sort</option>
+                            <option value="quick-sort">Quick Sort</option>
+                        </select>
+                        <span class="vs-text">VS</span>
+                        <select id="algo2-select" class="algo-select">
+                            <option value="merge-sort">Merge Sort</option>
+                            <option value="bubble-sort">Bubble Sort</option>
+                            <option value="quick-sort">Quick Sort</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="startComparison()">
+                            <i class="fas fa-play"></i>
+                            Compare
+                        </button>
+                    </div>
+                    <div class="comparison-results" id="comparison-results">
+                        <div class="result-panel">
+                            <h4>Algorithm 1</h4>
+                            <div class="performance-chart" id="chart1"></div>
+                        </div>
+                        <div class="result-panel">
+                            <h4>Algorithm 2</h4>
+                            <div class="performance-chart" id="chart2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="data-structures" class="section">
+            <div class="container">
+                <h2 class="section-title">Data Structures</h2>
+                <div class="cards-grid">
+                    <div class="card" onclick="openVisualization('stack')">
+                        <div class="card-icon">📚</div>
+                        <h3 class="card-title">Stack</h3>
+                        <p class="card-description">LIFO (Last In, First Out) data structure with push and pop operations</p>
+                    </div>
+                    <div class="card" onclick="openVisualization('queue')">
+                        <div class="card-icon">🚶‍♂️</div>
+                        <h3 class="card-title">Queue</h3>
+                        <p class="card-description">FIFO (First In, First Out) data structure with enqueue and dequeue</p>
+                    </div>
+                    <div class="card" onclick="openVisualization('linked-list')">
+                        <div class="card-icon">🔗</div>
+                        <h3 class="card-title">Linked List</h3>
+                        <p class="card-description">Dynamic data structure with nodes connected by pointers</p>
+                    </div>
+                    <div class="card" onclick="openVisualization('circular-queue')">
+                        <div class="card-icon">🔄</div>
+                        <h3 class="card-title">Circular Queue</h3>
+                        <p class="card-description">Queue implementation where the last position connects to the first</p>
+                    </div>
+                    <div class="card" onclick="openVisualization('circular-linked-list')">
+                        <div class="card-icon">🔄</div>
+                        <h3 class="card-title">Circular Linked List</h3>
+                        <p class="card-description">Linked list where the last node points back to the first node</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Visualization Modal -->
+        <div id="visualization-modal" class="modal">
+            <div class="modal-content modal-advanced">
+                <div class="modal-header">
+                    <div class="modal-title-section">
+                        <h3 id="modal-title">Algorithm Visualization</h3>
+                        <div class="modal-badges">
+                            <span class="badge badge-3d">3D</span>
+                            <span class="badge badge-interactive">Interactive</span>
+                            <span class="badge badge-performance">Performance</span>
+                        </div>
+                    </div>
+                    <div class="modal-controls">
+                        <button id="fullscreen-btn" class="control-btn" title="Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button id="export-btn" class="control-btn" title="Export">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="close-btn" onclick="closeModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="visualization-layout">
+                        <div class="visualization-main">
+                            <div id="visualization-container" class="visualization-container"></div>
+                        </div>
+                        <div class="visualization-sidebar">
+                            <div class="sidebar-tabs">
+                                <button class="tab-btn active" data-tab="controls">
+                                    <i class="fas fa-gamepad"></i>
+                                    Controls
+                                </button>
+                                <button class="tab-btn" data-tab="code">
+                                    <i class="fas fa-code"></i>
+                                    Code
+                                </button>
+                            </div>
+                            <div class="tab-content">
+                                <div id="controls-tab" class="tab-panel active">
+                                    <div class="control-group">
+                                    <label>🎯 Interactive Data Builder:</label>
+                                    <div class="input-methods">
+                                        <!-- Interactive Array Builder -->
+                                        <div class="array-builder" id="array-builder">
+                                            <div class="builder-header">
+                                                <h4>🎨 Build Your Array</h4>
+                                                <div class="builder-controls">
+                                                    <button class="btn-mini" onclick="clearArray()">🗑️ Clear</button>
+                                                    <button class="btn-mini" onclick="randomizeArray()">🎲 Random</button>
+                                                    <button class="btn-mini" onclick="sortedArray()">📈 Sorted</button>
+                                                    <button class="btn-mini" onclick="reversedArray()">📉 Reversed</button>
+                                                </div>
+                                            </div>
+                                            <div class="number-input-area">
+                                                <input type="number" id="number-input" placeholder="Enter number" min="1" max="999">
+                                                <button class="btn-add" onclick="addNumber()">➕ Add</button>
+                                            </div>
+                                            <div class="array-preview" id="array-preview">
+                                                <div class="preview-placeholder">
+                                                    <i class="fas fa-magic"></i>
+                                                    <p>Start building your array!</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Quick Presets -->
+                                        <div class="quick-presets">
+                                            <h4>⚡ Quick Presets:</h4>
+                                            <div class="preset-buttons">
+                                                <button class="preset-btn" onclick="loadPreset('small')">🔢 Small (5)</button>
+                                                <button class="preset-btn" onclick="loadPreset('medium')">📊 Medium (10)</button>
+                                                <button class="preset-btn" onclick="loadPreset('large')">📈 Large (15)</button>
+                                                <button class="preset-btn" onclick="loadPreset('fibonacci')">🌀 Fibonacci</button>
+                                                <button class="preset-btn" onclick="loadPreset('powers')">⚡ Powers of 2</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Advanced Input -->
+                                        <div class="advanced-input">
+                                            <div class="drag-drop-area" id="drag-drop-area">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                <p>Drag & Drop Files</p>
+                                                <input type="file" id="file-input" accept=".json,.csv,.txt" hidden>
+                                            </div>
+                                            <div class="manual-input">
+                                                <input type="text" id="manual-data" placeholder="Or type: 5,3,8,1,9,2">
+                                                <button class="btn btn-sm" onclick="loadManualData()">🚀 Load</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="controls">
+                                        <button id="start-btn" class="btn btn-primary btn-glow">
+                                            <i class="fas fa-play"></i>
+                                            Start
+                                        </button>
+                                        <button id="step-btn" class="btn btn-secondary">
+                                            <i class="fas fa-step-forward"></i>
+                                            Step
+                                        </button>
+                                        <button id="reset-btn" class="btn btn-secondary">
+                                            <i class="fas fa-undo"></i>
+                                            Reset
+                                        </button>
+                                        <button id="random-btn" class="btn btn-secondary">
+                                            <i class="fas fa-random"></i>
+                                            Random
+                                        </button>
+                                    </div>
+                                    <div class="speed-control">
+                                        <label for="speed-slider">
+                                            <i class="fas fa-tachometer-alt"></i>
+                                            Speed: <span id="speed-value">5</span>
+                                        </label>
+                                        <input type="range" id="speed-slider" min="1" max="10" value="5">
+                                    </div>
+                                </div>
+                                <div id="code-tab" class="tab-panel">
+                                    <div class="code-editor-container">
+                                        <div class="code-editor-header">
+                                            <span>Algorithm Implementation</span>
+                                            <button class="btn btn-sm" onclick="runCustomCode()">
+                                                <i class="fas fa-play"></i>
+                                                Run
+                                            </button>
+                                        </div>
+                                        <div id="code-editor" class="code-editor">
+                                            <pre><code class="language-javascript" id="algorithm-code">
+// Algorithm implementation will appear here
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        
+        if (arr[mid] === target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return -1;
+}
+                                            </code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="algorithm-info" class="algorithm-info"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Algorithm Visualizer. Built with ❤️ for learning.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
