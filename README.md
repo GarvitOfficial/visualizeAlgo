@@ -11,6 +11,8 @@
 
 🔗 **[Try it now!](https://garvitofficial.github.io/visualizeAlgo/)** - No installation required!
 
+> 🚀 **Auto-deployed via GitHub Pages** - Updates automatically with every commit!
+
 ## ✨ **What's Special About This Project?**
 
 ### 🎯 **Modular Architecture**
@@ -89,6 +91,10 @@ visualizeAlgo/
 
 ### For Users
 1. **Visit the live demo**: [https://garvitofficial.github.io/visualizeAlgo/](https://garvitofficial.github.io/visualizeAlgo/)
+   - 🌐 **Hosted on GitHub Pages** - Always up-to-date
+   - 📱 **Mobile-friendly** - Works on all devices
+   - ⚡ **Fast loading** - Optimized for performance
+
 2. **Or run locally**:
    ```bash
    git clone https://github.com/GarvitOfficial/visualizeAlgo.git
@@ -232,6 +238,12 @@ For detailed instructions, examples, and best practices, see our [CONTRIBUTING.m
 - Responsive layouts
 - Optimized performance
 - Gesture support
+
+### 🚀 **Deployment**
+- **GitHub Pages**: Automatically deployed from main branch
+- **CI/CD**: GitHub Actions workflow for seamless updates
+- **CDN**: Fast global content delivery
+- **HTTPS**: Secure connection with SSL certificate
 
 ## 🌟 **Community & Support**
 
